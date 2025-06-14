@@ -1,0 +1,7 @@
+{
+  "name": "catapi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
