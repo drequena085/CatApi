@@ -1,20 +1,36 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="custom-toolbar">
     <ion-title>
-      Blank
+      CatAPI
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <form (submit)="busqueda()">
+    <div class="encabezado">
+      <ion-item lines="none" class="search-box">
+        <ion-icon name="search-outline" slot="start" (click)="busqueda()"></ion-icon>
+        <ion-input placeholder="Buscar..." type="text" [(ngModel)]="inputBusqueda" name="busqueda"></ion-input>
+      </ion-item>
+    </div>
+  </form>
+  <div *ngIf="cargando" class="cargando-items">
+    <ion-icon name="reload-outline"></ion-icon>
   </div>
+  <ion-label *ngIf="!cargando && listaGatos.length === 0" style="margin-top: 35px; display: block; text-align: center;">No existen registros</ion-label>
+  <ion-list *ngIf="!cargando">
+    <ng-container *ngFor="let item of listaGatos">
+     <ion-card class="cat-card">
+      <div class="card-content">
+        <div class="corner top-left">{{ item.name }}</div>
+        <div class="corner top-right" (click)="verDetalle(item)">Más...</div>
+        <div class="photo-container" (click)="verDetalle(item)">
+          <img [src]="item.image.url" alt="Gato" />
+        </div>
+        <div class="corner bottom-left">{{ item.origin }}</div>
+        <div class="corner bottom-right">{{ 'Intelligence: ' + item.intelligence }}</div>
+      </div>
+    </ion-card>
+    </ng-container>
+  </ion-list>
 </ion-content>

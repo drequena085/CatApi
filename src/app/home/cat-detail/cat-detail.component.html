@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <div class="toolbar">
+      <ion-icon name="arrow-back-outline" (click)="cerrar()"></ion-icon>
+      <ion-title>
+        {{gato.name}}
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+  <div class="photo-container" #imagenContainer>
+    <img [src]="gato.image.url" alt="Gato" />
+  </div>
+  <div class="detail-container" [ngStyle]="{ 'max-height': alturaTexto }">
+    <ion-label>{{gato.description}}</ion-label>
+    <ion-label>{{'Origin Country: ' + gato.origin}}</ion-label>
+    <ion-label>{{'Intelligence: ' + gato.intelligence}}</ion-label>
+    <ion-label>{{'Adaptability: ' + gato.adaptability}}</ion-label>
+    <ion-label>{{'Life span: ' + gato.life_span + ' years'}}</ion-label>
+    <ion-label>{{'Affection level: ' + gato.affection_level}}</ion-label>
+    <ion-label>{{'Child friendly: ' + gato.child_friendly}}</ion-label>
+    <ion-label>{{'Dog friendly: ' + gato.dog_friendly}}</ion-label>
+    <ion-label>{{'Energy level: ' + gato.energy_level}}</ion-label>
+    <ion-label>{{'Stranger friendly: ' + gato.stranger_friendly}}</ion-label>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <ion-button (click)="verWikipedia()">Wikipedia</ion-button>
+    </div>
+  </div>
+</ion-content>

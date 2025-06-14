@@ -1,0 +1,29 @@
+.splash-screen {
+  --background: #232f49;
+  height: 100vh;
+  overflow: hidden;
+
+  .splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    .splash-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      transition: opacity 1.5s ease;
+    }
+
+    .splash-title {
+      font-size: 24px;
+      color: #b4c8f5 !important;
+      margin-bottom: 20px;
+    }
+  }
+}
